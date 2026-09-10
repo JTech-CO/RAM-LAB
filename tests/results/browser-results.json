@@ -1,0 +1,187 @@
+{
+  "reviewDate": "2026-09-10",
+  "runner": "Chromium via Playwright, set_content portable document",
+  "renderer": "software",
+  "scopeNote": "No live hosting, file URL navigation, native WebGL, Safari, Firefox, or physical GPU timing validation. Exports validate Blob payloads; link navigation is not exercised.",
+  "passed": 44,
+  "total": 44,
+  "errors": [],
+  "cases": [
+    {
+      "test": "App initialized; 3D renderer available",
+      "passed": true
+    },
+    {
+      "test": "DRAM: model meshes and displayed profile",
+      "passed": true
+    },
+    {
+      "test": "DRAM: circuit SVG",
+      "passed": true
+    },
+    {
+      "test": "DRAM: 8 × 8 interactive cells",
+      "passed": true
+    },
+    {
+      "test": "SRAM: model meshes and displayed profile",
+      "passed": true
+    },
+    {
+      "test": "SRAM: circuit SVG",
+      "passed": true
+    },
+    {
+      "test": "SRAM: 8 × 8 interactive cells",
+      "passed": true
+    },
+    {
+      "test": "HBM: model meshes and displayed profile",
+      "passed": true
+    },
+    {
+      "test": "HBM: circuit SVG",
+      "passed": true
+    },
+    {
+      "test": "HBM: 8 × 8 interactive cells",
+      "passed": true
+    },
+    {
+      "test": "HBF: model meshes and displayed profile",
+      "passed": true
+    },
+    {
+      "test": "HBF: circuit SVG",
+      "passed": true
+    },
+    {
+      "test": "HBF: 8 × 8 interactive cells",
+      "passed": true
+    },
+    {
+      "test": "NAND: model meshes and displayed profile",
+      "passed": true
+    },
+    {
+      "test": "NAND: circuit SVG",
+      "passed": true
+    },
+    {
+      "test": "NAND: 8 × 8 interactive cells",
+      "passed": true
+    },
+    {
+      "test": "SRAM write reaches actual model and display",
+      "passed": true
+    },
+    {
+      "test": "SRAM power off invalidates data",
+      "passed": true
+    },
+    {
+      "test": "SRAM power on does not restore lost data",
+      "passed": true
+    },
+    {
+      "test": "DRAM row-hit shortcut is visible",
+      "passed": true
+    },
+    {
+      "test": "DRAM leak loses read margin with refresh off",
+      "passed": true
+    },
+    {
+      "test": "Reset returns defined DRAM state",
+      "passed": true
+    },
+    {
+      "test": "Korean UTF-8 data encoding",
+      "passed": true
+    },
+    {
+      "test": "TLC storage and UTF-8 interpretation round-trip",
+      "passed": true
+    },
+    {
+      "test": "Same-page program blocked in UI",
+      "passed": true
+    },
+    {
+      "test": "NAND retains state without power",
+      "passed": true
+    },
+    {
+      "test": "Low comparator reference blocks cell",
+      "passed": true
+    },
+    {
+      "test": "High comparator reference passes cell",
+      "passed": true
+    },
+    {
+      "test": "Block erase returns all TLC bits to one",
+      "passed": true
+    },
+    {
+      "test": "Array click updates row and column",
+      "passed": true
+    },
+    {
+      "test": "Exploded model changes geometry",
+      "passed": true
+    },
+    {
+      "test": "JSON export contains current schema",
+      "passed": true
+    },
+    {
+      "test": "PNG export creates a nonempty image",
+      "passed": true
+    },
+    {
+      "test": "Help dialog opens",
+      "passed": true
+    },
+    {
+      "test": "Sources include primary references",
+      "passed": true
+    },
+    {
+      "test": "Five-layer comparison is complete",
+      "passed": true
+    },
+    {
+      "test": "Timed playback advances stages",
+      "passed": true
+    },
+    {
+      "test": "Pause stops automatic advancement",
+      "passed": true
+    },
+    {
+      "test": "Invalid hex is rejected",
+      "passed": true
+    },
+    {
+      "test": "Desktop has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "test": "390px layout has no page overflow",
+      "passed": true
+    },
+    {
+      "test": "768px layout has no page overflow",
+      "passed": true
+    },
+    {
+      "test": "1024px layout has no page overflow",
+      "passed": true
+    },
+    {
+      "test": "No uncaught JavaScript errors",
+      "passed": true
+    }
+  ]
+}

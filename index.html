@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#0b1116" name="theme-color"/><meta content="SRAM, DRAM, HBM, HBF, NAND의 내부 구조와 읽기·쓰기 원리를 직접 탐색하는 인터랙티브 메모리 연구실." name="description"/>
+<title>RAM - Interactive Memory Lab</title>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/><link href="css/app.css" rel="stylesheet"/>
+<script defer="" src="js/content.js"></script><script defer="" src="js/locales.js"></script><script defer="" src="js/i18n.js"></script><script defer="" src="js/simulator.js"></script><script defer="" src="js/engine.js"></script><script defer="" src="js/models.js"></script><script defer="" src="js/circuit.js"></script><script defer="" src="js/circuit-viewport.js"></script><script defer="" src="js/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 이동</a>
+<aside aria-label="메모리 종류" class="sidebar">
+<a aria-label="RAM Lab 홈" class="brand" href="#DRAM"><span class="brand-symbol"><i></i><i></i><i></i><i></i></span><strong>RAM<span>MEMORY LAB</span></strong></a>
+<p class="sidebar-caption">REVEALING ANATOMY<br/>OF MEMORY</p>
+<div class="nav-label">EXPLORE THE MEMORY</div>
+<nav id="memory-nav"></nav>
+<div class="sidebar-map"><span class="eyebrow">STORAGE PRINCIPLE</span><div><i class="small-dot blue"></i>래치<span>SRAM</span></div><div><i class="small-dot mint"></i>커패시터<span>DRAM · HBM</span></div><div><i class="small-dot lilac"></i>전하 저장층<span>HBF · NAND</span></div><p>HBM은 DRAM 계열,<br/>HBF는 NAND 계열입니다.</p></div>
+<div class="sidebar-bottom"><button class="text-button" id="sources-button">자료 출처와 모델 범위 <span>↗</span></button><div class="verified"><i></i>검토 기준 <time>2026.09.10</time></div><span class="version">MEMORY LAB / v1.1</span></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div><span class="status-icon">⌘</span><span>INTERACTIVE ATLAS</span><span class="slash">/</span><span class="topbar-secondary">MEMORY OPERATIONS</span></div><div class="top-actions"><div aria-label="언어 선택" class="language-switch" role="group"><button aria-pressed="true" data-lang="ko" lang="ko" title="한국어" type="button">KR</button><button aria-pressed="false" data-lang="en" lang="en" title="English" type="button">EN</button></div><button class="text-button" id="compare-button">계층 비교</button><button aria-label="현재 상태를 JSON으로 저장" class="icon-button" id="export-button" title="현재 상태를 JSON으로 저장">↓</button><button aria-label="사용법 및 단축키" class="icon-button" id="help-button" title="사용법 및 단축키">?</button><a class="repo-link" href="https://github.com/JTech-CO/RAM" rel="noopener noreferrer" target="_blank">GitHub ↗</a></div></header>
+<main id="main">
+<section class="intro"><div><div class="eyebrow"><span class="small-dot mint"></span>EXPLORE <span id="profile-num">02</span> / 05</div><div class="title-line"><h1 id="memory-title">DRAM</h1><span class="chip" id="memory-unit">1T1C / BIT</span><span class="chip subtle" id="volatility">VOLATILE</span></div><h2 id="memory-subtitle">저장된 전하가 데이터가 되는 순간.</h2></div><p class="intro-note" id="intro-note"></p></section>
+<section aria-label="메모리 탐색기" class="studio">
+<div class="viewer-card">
+<div class="viewer-toolbar"><div aria-label="시각화 방식" class="view-tabs" role="tablist"><button aria-selected="true" class="active" data-view="structure" role="tab">◇ <span>3D 구조</span></button><button aria-selected="false" data-view="circuit" role="tab">⌁ <span>회로 보기</span></button><button aria-selected="false" data-view="array" role="tab">▦ <span>셀 배열</span></button></div><div class="viewer-tools"><button aria-pressed="true" class="tool-button active" id="labels-toggle" title="구조 주석 표시">주석</button><button aria-label="3D 장면 PNG 저장" class="tool-button" id="snapshot-button" title="3D 장면 PNG 저장">▣</button><button aria-label="시점 초기화" class="tool-button" id="reset-camera" title="시점 초기화 (R)">⌖</button><button aria-label="시각화 전체 화면" class="tool-button" id="fullscreen-button" title="시각화 전체 화면">⛶</button></div></div><div aria-label="회로 확대 제어" class="circuit-tools" hidden="" id="circuit-tools"><div class="zoom-group"><button aria-label="회로 축소" class="zoom-button" id="circuit-zoom-out" title="축소 (-)">−</button><output aria-live="polite" id="circuit-zoom-value">100%</output><button aria-label="회로 확대" class="zoom-button" id="circuit-zoom-in" title="확대 (+)">+</button></div><button class="small-button" id="circuit-fit">전체 보기</button><button class="small-button" id="circuit-reset">기본 배율</button><span class="circuit-gesture">드래그 이동 · 핀치 / 휠 확대</span></div>
+<div class="viewport" data-view="structure" id="viewport">
+<div class="scene-caption"><span id="scene-title">1T1C / CELL CROSS-SECTION</span><small id="scene-note">대표 구조 · 축척 비례 아님</small></div>
+<div id="webgl-container"><canvas aria-label="회전 및 확대가 가능한 반도체 3D 모델. 접근 가능한 회로 설명은 회로 보기 탭에 있습니다." id="scene" tabindex="0"></canvas><div id="model-labels"></div><div class="axis"><span>Y</span><i></i><b>X</b><em>Z</em></div><div hidden="" id="webgl-error"><strong>이 환경에서는 WebGL 2를 사용할 수 없습니다.</strong><p>회로와 셀 배열, 읽기·쓰기 시뮬레이션은 계속 사용할 수 있습니다.</p><button id="fallback-circuit">회로 보기</button></div></div>
+<div aria-label="확대와 이동이 가능한 회로도" hidden="" id="circuit-view" role="tabpanel" tabindex="0"><div id="circuit-surface"></div></div>
+<div aria-label="주소별 메모리 셀 상태" hidden="" id="array-view" role="tabpanel" tabindex="0"></div>
+<div class="view-hint" id="view-hint"><span>드래그 회전</span><i>·</i><span>휠 확대</span><i>·</i><span>구조 주석 선택</span></div>
+</div>
+<div class="model-controls"><label class="toggle"><input checked="" id="cutaway" type="checkbox"/><span></span>단면 열기</label><label class="explode-control"><span>분해</span><input aria-label="모델 분해 정도" id="explode" max="1" min="0" step="0.01" type="range" value="0"/><output id="explode-value">0%</output></label><div class="layer-control" hidden="" id="layer-control"><label for="layer">관찰 다이</label><select aria-label="관찰할 다이" id="layer"></select></div><button aria-pressed="false" class="text-button" id="rotate-toggle">자동 회전</button></div>
+<div class="visual-legend"><span><i class="line mint"></i>신호·데이터 경로</span><span><i class="small-dot amber"></i>전하·게이트 제어</span><span class="legend-note">광점은 진행 방향을 표시하며 전자 궤적이 아닙니다.</span></div>
+</div>
+<aside aria-label="실시간 동작 분석" class="inspector">
+<div class="inspector-head"><span class="eyebrow">LIVE INSPECTOR</span><button aria-pressed="true" class="power-button" id="power-toggle"><i></i>전원 ON</button></div>
+<div class="step-meta"><span class="live-dot"></span><b id="stage-code">PRECHARGE</b><span id="stage-counter">01 / 06</span></div>
+<h3 id="stage-title"></h3><details class="stage-explanation" open=""><summary>단계 상세 설명</summary><p class="stage-intro" id="stage-intro"></p><p class="stage-detail" id="stage-detail"></p></details>
+<div class="live-metrics" id="live-metrics"></div>
+<div class="signal-heading"><span id="signal-graph-title">SIGNAL TIMING</span><small>시간축 정규화 · 설명용</small></div><div aria-label="신호 또는 문턱 전압 그래프" id="signal-graph" tabindex="0"></div>
+<div hidden="" id="flash-controls"><div class="inline-control"><label for="bpc">셀당 정보</label><select id="bpc"><option value="1">SLC · 1 bit</option><option value="2">MLC · 2 bit</option><option value="3">TLC · 3 bit</option><option value="4">QLC · 4 bit</option></select></div><div class="inline-control"><label for="vref">읽기 기준 Vref</label><output id="vref-value">0.50</output></div><input aria-label="정규화 읽기 기준 전압" id="vref" max="1" min="0" step="0.01" type="range" value="0.5"/><p class="micro-note" id="conduct-label"></p></div>
+<div hidden="" id="cap-controls"><div class="inline-control"><label class="toggle"><input checked="" id="refresh-enabled" type="checkbox"/><span></span>자동 리프레시</label><button class="small-button" id="age-button">가상 시간 +20 ms</button></div><p class="micro-note" id="age-note">예시 누설 모델 · 실제 장치 시간과 다릅니다.</p></div>
+<div hidden="" id="lane-controls"><div class="inline-control"><label for="lanes">대표 병렬 경로</label><select id="lanes"><option value="1">1 path</option><option value="2">2 paths</option><option value="4">4 paths</option><option selected="" value="8">8 paths</option></select></div><div class="lanes-preview" id="lanes-preview"></div><p class="micro-note">채널 수·다이 수·핀 수는 서로 다른 지표입니다.</p></div>
+<div class="part-inspector"><div class="eyebrow">SELECTED STRUCTURE</div><h4 id="part-name">저장 전극 / 저장 노드</h4><small id="part-en"></small><p id="part-detail"></p></div>
+</aside>
+</section>
+<section aria-label="동작 제어" class="operation-panel">
+<div class="operation-head"><div class="operation-select" id="operation-select"></div><div class="address-controls"><label hidden="" id="bank-wrapper">BANK <select aria-label="뱅크 또는 대표 블록 선택" id="bank"></select></label><label>ROW <select aria-label="행 또는 페이지 선택" id="row"></select></label><label>COL <select aria-label="관찰할 열 또는 스트링 선택" id="col"></select></label></div></div>
+<div aria-label="동작 단계" class="sequence" id="sequence"></div>
+<div class="transport"><div class="transport-left"><button aria-label="동작 재생" class="primary-button" id="play-button">▶ <span>동작 재생</span></button><button class="secondary-button" id="previous-button" title="이전 단계 (←)">이전</button><button class="secondary-button" id="next-button" title="다음 단계 (→)">다음 <span>→</span></button><button aria-label="이번 동작 처음부터" class="icon-button" id="replay-button" title="이번 동작 처음부터">↺</button><label class="speed-control">속도 <select id="speed"><option value="0.5">0.5×</option><option selected="" value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></label></div><div class="transport-note"><span id="operation-state">STEP MODE</span><small>단계 탐색은 이번 연산을 재현합니다.</small></div><button class="reset-button" id="reset-button">메모리 초기화</button></div>
+</section>
+<section aria-label="데이터 입출력" class="data-workbench">
+<div class="data-input"><div class="section-label"><span class="eyebrow">01 / DATA INPUT</span><span id="word-size">8-BIT WORD</span></div><div class="data-field"><span>0x</span><input aria-label="쓸 데이터 16진수" autocapitalize="characters" autocomplete="off" id="data-hex" inputmode="text" maxlength="8" spellcheck="false" value="A6"/><span id="hex-valid">HEX</span></div><div class="codec-row"><input aria-label="UTF-8로 변환할 문자" autocapitalize="off" id="text-input" maxlength="16" placeholder="문자 입력" type="text" value="A"/><button id="encode-button">UTF-8 → HEX</button></div><p class="micro-note" id="input-note">목표 데이터를 입력하고 ‘쓰기’ 동작을 재생하세요.</p></div>
+<div class="data-output"><div class="section-label"><span class="eyebrow">02 / STORED STATE</span><span id="data-address">B0 / R3</span></div><div class="bit-strip" id="bit-strip"></div><div class="decoded"><span id="stored-hex">0xEB</span><small id="stored-decimal"></small><span class="row-state" id="row-state"></span></div><p class="micro-note" id="cell-state-note">8개 셀의 상태를 표시합니다. 선택 열은 테두리로 강조됩니다.</p></div>
+<div class="data-readout"><div class="section-label"><span class="eyebrow">03 / READOUT</span><span id="readout-status">NOT LATCHED</span></div><div class="readout-value" id="readout-value">-</div><p class="micro-note" data-user-output="" id="readout-note">읽기가 출력 단계에 도달하면 결과가 표시됩니다.</p><div class="power-note" id="power-note"></div></div>
+</section>
+<section aria-label="모델 설명" class="learning-notes"><article><span class="eyebrow">THE UNDERLYING PRINCIPLE</span><h3 id="concept-title"></h3><div class="formula" id="formula"></div><details class="learning-detail"><summary>자세히 보기</summary><p id="formula-note"></p></details></article><article><span class="eyebrow">WHAT THE BITS MEAN</span><h3>셀은 데이터의 의미를 모릅니다.</h3><p class="section-summary" id="data-summary"></p><details class="learning-detail"><summary>자세히 보기</summary><p id="data-meaning"></p></details><div class="profile-facts" id="profile-facts"></div></article><article><span class="eyebrow">MODEL BOUNDARY</span><h3>사실적인 구조, 명시적인 단순화.</h3><p class="section-summary" id="model-summary"></p><details class="learning-detail"><summary>자세히 보기</summary><p id="model-caveat"></p></details><button class="text-button" id="profile-sources">근거 자료와 가정 보기 ↗</button></article></section>
+<footer class="footer"><span>RAM / REVEALING ANATOMY OF MEMORY</span><span>셀 · 회로 · 배열 · 데이터 경로 <i>-</i> 제조 공정이 아닌 작동 원리를 탐색합니다.</span></footer>
+</main>
+</div>
+<dialog aria-labelledby="dialog-title" id="info-dialog"><div class="dialog-head"><h2 id="dialog-title"></h2><div aria-label="언어 선택" class="language-switch" role="group"><button aria-pressed="true" data-lang="ko" lang="ko" title="한국어" type="button">KR</button><button aria-pressed="false" data-lang="en" lang="en" title="English" type="button">EN</button></div><button aria-label="닫기" class="icon-button" id="dialog-close">×</button></div><div id="dialog-body"></div></dialog>
+<div aria-live="polite" hidden="" id="toast" role="status"></div>
+<noscript><div class="noscript">이 웹앱은 JavaScript가 필요합니다. 스크립트를 허용한 브라우저에서 열어 주세요.</div></noscript>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "ram-memory-lab",
+  "version": "1.1.0",
+  "private": true,
+  "description": "An offline-first interactive anatomy of SRAM, DRAM, HBM, HBF and NAND.",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node --test tests/model.test.cjs",
+    "build:portable": "node scripts/build-portable.cjs",
+    "test:browser": "python tests/browser.test.py",
+    "test:ui": "python tests/ui-regression.test.py",
+    "test:layouts": "python tests/layout-matrix.test.py"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

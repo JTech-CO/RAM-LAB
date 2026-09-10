@@ -1,0 +1,254 @@
+
+> ram-memory-lab@1.1.0 test
+> node --test tests/model.test.cjs
+
+TAP version 13
+# Subtest: SRAM: read sequence terminates and returns selected row
+ok 1 - SRAM: read sequence terminates and returns selected row
+  ---
+  duration_ms: 5.805502
+  type: 'test'
+  ...
+# Subtest: SRAM: writes affect only selected row and bank
+ok 2 - SRAM: writes affect only selected row and bank
+  ---
+  duration_ms: 0.6237
+  type: 'test'
+  ...
+# Subtest: SRAM: previous step deterministically replays
+ok 3 - SRAM: previous step deterministically replays
+  ---
+  duration_ms: 0.352741
+  type: 'test'
+  ...
+# Subtest: DRAM: read sequence terminates and returns selected row
+ok 4 - DRAM: read sequence terminates and returns selected row
+  ---
+  duration_ms: 0.220893
+  type: 'test'
+  ...
+# Subtest: DRAM: writes affect only selected row and bank
+ok 5 - DRAM: writes affect only selected row and bank
+  ---
+  duration_ms: 0.244949
+  type: 'test'
+  ...
+# Subtest: DRAM: previous step deterministically replays
+ok 6 - DRAM: previous step deterministically replays
+  ---
+  duration_ms: 0.308695
+  type: 'test'
+  ...
+# Subtest: HBM: read sequence terminates and returns selected row
+ok 7 - HBM: read sequence terminates and returns selected row
+  ---
+  duration_ms: 2.967068
+  type: 'test'
+  ...
+# Subtest: HBM: writes affect only selected row and bank
+ok 8 - HBM: writes affect only selected row and bank
+  ---
+  duration_ms: 0.435415
+  type: 'test'
+  ...
+# Subtest: HBM: previous step deterministically replays
+ok 9 - HBM: previous step deterministically replays
+  ---
+  duration_ms: 0.618652
+  type: 'test'
+  ...
+# Subtest: HBF: read sequence terminates and returns selected row
+ok 10 - HBF: read sequence terminates and returns selected row
+  ---
+  duration_ms: 0.60428
+  type: 'test'
+  ...
+# Subtest: HBF: writes affect only selected row and bank
+ok 11 - HBF: writes affect only selected row and bank
+  ---
+  duration_ms: 0.47855
+  type: 'test'
+  ...
+# Subtest: HBF: previous step deterministically replays
+ok 12 - HBF: previous step deterministically replays
+  ---
+  duration_ms: 3.783888
+  type: 'test'
+  ...
+# Subtest: NAND: read sequence terminates and returns selected row
+ok 13 - NAND: read sequence terminates and returns selected row
+  ---
+  duration_ms: 0.106611
+  type: 'test'
+  ...
+# Subtest: NAND: writes affect only selected row and bank
+ok 14 - NAND: writes affect only selected row and bank
+  ---
+  duration_ms: 0.103546
+  type: 'test'
+  ...
+# Subtest: NAND: previous step deterministically replays
+ok 15 - NAND: previous step deterministically replays
+  ---
+  duration_ms: 0.110757
+  type: 'test'
+  ...
+# Subtest: SRAM: power loss invalidates data; power-on does not resurrect it
+ok 16 - SRAM: power loss invalidates data; power-on does not resurrect it
+  ---
+  duration_ms: 0.721647
+  type: 'test'
+  ...
+# Subtest: DRAM: power loss invalidates data; power-on does not resurrect it
+ok 17 - DRAM: power loss invalidates data; power-on does not resurrect it
+  ---
+  duration_ms: 0.191538
+  type: 'test'
+  ...
+# Subtest: HBM: power loss invalidates data; power-on does not resurrect it
+ok 18 - HBM: power loss invalidates data; power-on does not resurrect it
+  ---
+  duration_ms: 0.509337
+  type: 'test'
+  ...
+# Subtest: NAND: page cannot be arbitrarily rewritten
+ok 19 - NAND: page cannot be arbitrarily rewritten
+  ---
+  duration_ms: 0.138017
+  type: 'test'
+  ...
+# Subtest: NAND: block erase clears every page but not other blocks
+ok 20 - NAND: block erase clears every page but not other blocks
+  ---
+  duration_ms: 0.308695
+  type: 'test'
+  ...
+# Subtest: NAND: power cycle retains charge state
+ok 21 - NAND: power cycle retains charge state
+  ---
+  duration_ms: 0.148464
+  type: 'test'
+  ...
+# Subtest: HBF: page cannot be arbitrarily rewritten
+ok 22 - HBF: page cannot be arbitrarily rewritten
+  ---
+  duration_ms: 0.231318
+  type: 'test'
+  ...
+# Subtest: HBF: block erase clears every page but not other blocks
+ok 23 - HBF: block erase clears every page but not other blocks
+  ---
+  duration_ms: 0.372051
+  type: 'test'
+  ...
+# Subtest: HBF: power cycle retains charge state
+ok 24 - HBF: power cycle retains charge state
+  ---
+  duration_ms: 0.421244
+  type: 'test'
+  ...
+# Subtest: All illustrative Gray mappings are bijective and erased state decodes to ones
+ok 25 - All illustrative Gray mappings are bijective and erased state decodes to ones
+  ---
+  duration_ms: 0.13267
+  type: 'test'
+  ...
+# Subtest: DRAM charge sharing follows charge conservation for 1 and 0
+ok 26 - DRAM charge sharing follows charge conservation for 1 and 0
+  ---
+  duration_ms: 0.667305
+  type: 'test'
+  ...
+# Subtest: DRAM row hit omits activation after completed read
+ok 27 - DRAM row hit omits activation after completed read
+  ---
+  duration_ms: 0.129074
+  type: 'test'
+  ...
+# Subtest: DRAM row change cannot use stale row buffer
+ok 28 - DRAM row change cannot use stale row buffer
+  ---
+  duration_ms: 0.147913
+  type: 'test'
+  ...
+# Subtest: DRAM refresh-off loses margins while refresh-on retains values
+ok 29 - DRAM refresh-off loses margins while refresh-on retains values
+  ---
+  duration_ms: 0.495576
+  type: 'test'
+  ...
+# Subtest: Refresh cannot recover information already invalidated
+ok 30 - Refresh cannot recover information already invalidated
+  ---
+  duration_ms: 0.23287
+  type: 'test'
+  ...
+# Subtest: Switching type never transfers the old memory object into the new type
+ok 31 - Switching type never transfers the old memory object into the new type
+  ---
+  duration_ms: 0.344739
+  type: 'test'
+  ...
+# Subtest: Changing flash format resets only current type and updates all 16 states
+ok 32 - Changing flash format resets only current type and updates all 16 states
+  ---
+  duration_ms: 0.241704
+  type: 'test'
+  ...
+# Subtest: Invalid hex is rejected, not silently coerced
+ok 33 - Invalid hex is rejected, not silently coerced
+  ---
+  duration_ms: 0.220822
+  type: 'test'
+  ...
+# Subtest: Unfinished writes are canceled when choosing another address
+ok 34 - Unfinished writes are canceled when choosing another address
+  ---
+  duration_ms: 0.166982
+  type: 'test'
+  ...
+# Subtest: Read reference controls conduction, not stored NAND data
+ok 35 - Read reference controls conduction, not stored NAND data
+  ---
+  duration_ms: 0.235495
+  type: 'test'
+  ...
+# Subtest: 32-bit QLC data is unsigned and roundtrips
+ok 36 - 32-bit QLC data is unsigned and roundtrips
+  ---
+  duration_ms: 0.216496
+  type: 'test'
+  ...
+# Subtest: DRAM open row keeps WL asserted through column reads
+ok 37 - DRAM open row keeps WL asserted through column reads
+  ---
+  duration_ms: 0.156025
+  type: 'test'
+  ...
+# Subtest: HBM write is host to memory before cell commitment
+ok 38 - HBM write is host to memory before cell commitment
+  ---
+  duration_ms: 0.577299
+  type: 'test'
+  ...
+# Subtest: HBM closed-page example closes before opening new row
+ok 39 - HBM closed-page example closes before opening new row
+  ---
+  duration_ms: 0.210407
+  type: 'test'
+  ...
+# Subtest: ideal comparator sweep resolves all 30 multi-level states
+ok 40 - ideal comparator sweep resolves all 30 multi-level states
+  ---
+  duration_ms: 0.10596
+  type: 'test'
+  ...
+1..40
+# tests 40
+# suites 0
+# pass 40
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 91.503858

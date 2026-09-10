@@ -1,0 +1,380 @@
+{
+  "reviewDate": "2026-09-10",
+  "runner": "Chromium / Playwright; portable HTML via set_content",
+  "renderer": "software",
+  "scopeNote": "Viewport emulation, not physical phones/tablets. Pinch uses CDP touch events. Storage uses fixtures. Native WebGL, file URL / hosted navigation, Safari and Firefox are not validated.",
+  "passed": 92,
+  "total": 92,
+  "errors": [],
+  "cases": [
+    {
+      "test": "KR is the default without a stored preference",
+      "passed": true
+    },
+    {
+      "test": "Desktop detailed stage explanation starts expanded",
+      "passed": true
+    },
+    {
+      "test": "Learning detail panels are collapsed, with summaries retained",
+      "passed": true
+    },
+    {
+      "test": "Detailed stage explanation can collapse",
+      "passed": true
+    },
+    {
+      "test": "First circuit is centered after switching types while hidden",
+      "passed": true
+    },
+    {
+      "test": "Circuit + zooms in",
+      "passed": true
+    },
+    {
+      "test": "Circuit - returns to the preceding scale",
+      "passed": true
+    },
+    {
+      "test": "Wheel zoom changes the circuit camera",
+      "passed": true
+    },
+    {
+      "test": "Dragging pans the circuit",
+      "passed": true
+    },
+    {
+      "test": "Keyboard + zooms the circuit, not the 3D camera",
+      "passed": true
+    },
+    {
+      "test": "Arrow keys pan when the circuit has focus",
+      "passed": true
+    },
+    {
+      "test": "Circuit maximum is 400%",
+      "passed": true
+    },
+    {
+      "test": "Circuit minimum is 25%",
+      "passed": true
+    },
+    {
+      "test": "Stage advance preserves circuit zoom and pan",
+      "passed": true
+    },
+    {
+      "test": "EN switches html language and selected button",
+      "passed": true
+    },
+    {
+      "test": "Language switch preserves model, operation and address",
+      "passed": true
+    },
+    {
+      "test": "Language switch preserves HEX input and circuit camera",
+      "passed": true
+    },
+    {
+      "test": "Each memory type retains its own circuit camera",
+      "passed": true
+    },
+    {
+      "test": "Fit shows the whole circuit within the current panel",
+      "passed": true
+    },
+    {
+      "test": "SRAM: source dialog is English without em dashes",
+      "passed": true
+    },
+    {
+      "test": "SRAM: dialog language switch also updates existing text",
+      "passed": true
+    },
+    {
+      "test": "SRAM: flow captions contain keywords, not full sentences",
+      "passed": true
+    },
+    {
+      "test": "DRAM: source dialog is English without em dashes",
+      "passed": true
+    },
+    {
+      "test": "DRAM: dialog language switch also updates existing text",
+      "passed": true
+    },
+    {
+      "test": "DRAM: flow captions contain keywords, not full sentences",
+      "passed": true
+    },
+    {
+      "test": "HBM: source dialog is English without em dashes",
+      "passed": true
+    },
+    {
+      "test": "HBM: dialog language switch also updates existing text",
+      "passed": true
+    },
+    {
+      "test": "HBM: flow captions contain keywords, not full sentences",
+      "passed": true
+    },
+    {
+      "test": "HBF: source dialog is English without em dashes",
+      "passed": true
+    },
+    {
+      "test": "HBF: dialog language switch also updates existing text",
+      "passed": true
+    },
+    {
+      "test": "HBF: flow captions contain keywords, not full sentences",
+      "passed": true
+    },
+    {
+      "test": "NAND: source dialog is English without em dashes",
+      "passed": true
+    },
+    {
+      "test": "NAND: dialog language switch also updates existing text",
+      "passed": true
+    },
+    {
+      "test": "NAND: flow captions contain keywords, not full sentences",
+      "passed": true
+    },
+    {
+      "test": "help-button: all dialog text is translated",
+      "passed": true
+    },
+    {
+      "test": "compare-button: all dialog text is translated",
+      "passed": true
+    },
+    {
+      "test": "No untranslated dynamic Korean strings across audited English screens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "test": "English UI preserves user-authored Korean UTF-8 data",
+      "passed": true
+    },
+    {
+      "test": "KR switch preserves stored data and readout",
+      "passed": true
+    },
+    {
+      "test": "ko 320px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 320px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 360px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 360px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 390px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 390px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 600px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 600px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 768px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 768px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 834px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 834px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 1024px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 1024px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 1280px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 1280px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko 1536px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "ko 1536px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "ko: visible app contains no em dash",
+      "passed": true
+    },
+    {
+      "test": "en 320px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 320px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 360px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 360px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 390px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 390px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 600px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 600px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 768px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 768px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 834px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 834px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 1024px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 1024px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 1280px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 1280px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en 1536px: no page-wide horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "en 1536px: visible UI text is at least 12px",
+      "passed": true
+    },
+    {
+      "test": "en: visible app contains no em dash",
+      "passed": true
+    },
+    {
+      "test": "Phone stage detail starts collapsed with a visible summary",
+      "passed": true
+    },
+    {
+      "test": "Phone 3D labels start off to avoid covering the model",
+      "passed": true
+    },
+    {
+      "test": "Phone circuit defaults to a readable 100% scale",
+      "passed": true
+    },
+    {
+      "test": "Two-finger touchscreen pinch zooms the circuit",
+      "passed": true
+    },
+    {
+      "test": "Touch gesture completion clears captured pointers",
+      "passed": true
+    },
+    {
+      "test": "Phone Fit gives a complete overview at a smaller scale",
+      "passed": true
+    },
+    {
+      "test": "Phone reset returns to 100%, not tiny fit-to-screen text",
+      "passed": true
+    },
+    {
+      "test": "Mobile supports expanded viewer without the native Fullscreen API",
+      "passed": true
+    },
+    {
+      "test": "Escape exits the expanded-view fallback",
+      "passed": true
+    },
+    {
+      "test": "Phone cell array scrolls inside its panel rather than the page",
+      "passed": true
+    },
+    {
+      "test": "Phone comparison table scrolls inside the dialog",
+      "passed": true
+    },
+    {
+      "test": "Previously saved English preference is read at startup (storage fixture)",
+      "passed": true
+    },
+    {
+      "test": "KR selection writes only the language preference (storage fixture)",
+      "passed": true
+    },
+    {
+      "test": "Language switching still works when storage is denied",
+      "passed": true
+    },
+    {
+      "test": "No uncaught JavaScript errors in revised UI regression suite",
+      "passed": true
+    }
+  ]
+}
